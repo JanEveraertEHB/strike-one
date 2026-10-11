@@ -1,4 +1,4 @@
-#Strike one!
+# Strike one!
 
 ## Description
 A platform to pool and distribute footage and images during manifestations and strikes
@@ -17,10 +17,14 @@ run the development server by running `npm run dev`.
 * Display the array of items, sorted by the date
   * add a get endpoint
   * handle the endpoint in the frontend
-  * in the frontend, use a class to display
+  * implement a class to store the items in a structured way
 * group the items by name of the manifestation
 * Display the actual item
   * use subclasses to display different types
+  * Use class functions to return html based on the type of item
+ 
+Extra:
+* Allow visitors to up- or downvote a picture, like on reddit.
   
 
 ## License
