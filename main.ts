@@ -1,4 +1,10 @@
 import express, { Request, Response } from "express";
+import knex from 'knex'
+import knexfile from './knexfile.js'
+
+
+const db = knex(knexfile);
+
 
 const app = express()
 const port = 3000
@@ -15,7 +21,14 @@ app.use(express.json())
 app.use(express.static('public'));
 
 app.get("/api/footage",  (req: Request , res: Response) => {
-  res.send(items)
+
+  db.select("*").table("footage").then((data) => {
+    res.send(data);
+  }).catch((e) => {
+    console.log(e)
+    res.status(500).send()
+  })
+
 });
 
 app.post("/api/footage", (req: Request , res: Response) => {
@@ -24,8 +37,12 @@ app.post("/api/footage", (req: Request , res: Response) => {
     eventDate: req.body.eventDate, 
     footageURI: req.body.footageURI
   };
-  items.push(footageInstance);
-  res.send({message: "OK"})
+
+  db.insert(footageInstance).table("footage").returning("*").then((data) => {
+    res.send(data);
+  }).catch((e) => {
+    res.status(500).send()
+  })
 })
 
 app.listen(port, () => {

@@ -6,6 +6,9 @@ A platform to pool and distribute footage and images during manifestations and s
 ## Development
 run the development server by running `npm run dev`.
 
+# Migrating
+
+`knex migrate:make name_of_the_change -x ts`
 
 ## Todo:
 * Add express CORS
