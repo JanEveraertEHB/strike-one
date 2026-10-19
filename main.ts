@@ -19,16 +19,12 @@ app.get("/api/footage",  (req: Request , res: Response) => {
 });
 
 app.post("/api/footage", (req: Request , res: Response) => {
-  console.log(req.body)
-
   const footageInstance = {
     eventName: req.body.eventName,
     eventDate: req.body.eventDate, 
     footageURI: req.body.footageURI
   };
-
   items.push(footageInstance);
-  console.log(items)
   res.send({message: "OK"})
 })
 

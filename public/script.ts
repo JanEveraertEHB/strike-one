@@ -3,6 +3,8 @@ import Footage from "./Footage.js";
 
 const API_URI = "http://localhost:3000";
 
+
+
 function init() {
   document.getElementById("submitForm")?.addEventListener("click", (ev) => {
     ev.preventDefault()
@@ -18,18 +20,13 @@ function getFootageListAndDisplay() {
   fetch(API_URI + "/api/footage")
     .then(r => r.json())
     .then((data) => {
-      console.log(data)
-
       data.forEach((element: Footage, index: Number) => {
-        console.log(element)
         const footageInstance = new Footage(element.eventName, element.eventDate, element.footageURI);
         container.insertAdjacentHTML("beforeend", footageInstance.renderHtmlString())
-        console.log(footageInstance)
       })
 
     })
 }
-
 
 function addPost() {
   const nameElement = document.getElementById("eventName") as HTMLInputElement;

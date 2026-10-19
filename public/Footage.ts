@@ -1,17 +1,17 @@
 
 
 export default class Footage {
-  eventName: String;
-  eventDate: String;
-  footageURI: String;
+  eventName: string;
+  eventDate: string;
+  footageURI: string;
 
-  constructor( name:String, date:String, uri:String) {
+  constructor( name:string, date:string, uri:string) {
     this.eventName = name;
     this.eventDate = date;
     this.footageURI = uri;
   }
 
-  renderHtmlString(): String {
+  renderHtmlString(): string {
     const htmlString = `
       <article>
         <h1>${this.eventName} - ${this.eventDate}</h1>
