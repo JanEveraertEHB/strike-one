@@ -1,6 +1,7 @@
 *.js
 .DS_Store
 db/*
+!db/.gitkeep
 
 # Logs
 logs

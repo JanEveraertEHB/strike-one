@@ -1,18 +1,17 @@
-// Update with your config settings.
+import type { Knex } from "knex";
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
-export default {
-  client: 'better-sqlite3', 
+// Database configuration, used by main.ts and by the knex CLI (npm run migrate)
+const config: Knex.Config = {
+  client: "better-sqlite3",
   useNullAsDefault: true,
   connection: {
-    filename: './db/footage.db',
+    filename: "./db/footage.db",
   },
   migrations: {
-    tableName: 'knex_migrations',
+    tableName: "knex_migrations",
     // only run the compiled migrations, not the .ts sources sitting next to them
-    loadExtensions: ['.js']
-  }
-
+    loadExtensions: [".js"],
+  },
 };
+
+export default config;

@@ -1,19 +1,25 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strike one</title>
   <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="container">
-    <input type="text" id="footageURI" placeholder="url of the footage" /><br/>
-    <input type="text" id="eventName" placeholder="eventname" /><br/>
-    <input type="date" id="eventDate" placeholder="date of the event"/><br/>
-    <a id="submitForm" href="http://google.com">Submit</a>
-  </div>
+  <h1>Strike one</h1>
+  <form class="container">
+    <input type="text" id="footageURI" placeholder="URL of the footage" /><br />
+    <input type="text" id="eventName" placeholder="Name of the event" /><br />
+    <input type="date" id="eventDate" /><br />
+    <button type="submit" id="submitForm">Submit</button>
+  </form>
   <div id="footageList">
   </div>
+  <!-- script.js is compiled from script.ts by "npm run compile" -->
   <script src="script.js" type="module"></script>
 </body>
+
 </html>
