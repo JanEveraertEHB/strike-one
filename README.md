@@ -8,7 +8,7 @@ run the development server by running `npm run dev`.
 
 # Migrating
 
-`knex migrate:make name_of_the_change -x ts`
+`npm run migrate:make [name_of_the_migration]`
 
 ## Todo:
 * Add express CORS

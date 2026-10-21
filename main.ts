@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 app.get("/api/footage",  (req: Request , res: Response) => {
 
-  db.select("*").table("footage").then((data) => {
+  db.select("*").table("footage").where({archived: false}).then((data) => {
     res.send(data);
   }).catch((e) => {
     console.log(e)
@@ -31,11 +31,23 @@ app.get("/api/footage",  (req: Request , res: Response) => {
 
 });
 
+app.patch("/api/footage/:id", (req: Request , res: Response) => {
+    const requestBody = req.body;
+    const id = req.params.id;
+
+    console.log(id, requestBody);
+    db.update(requestBody).where({ id: id}).table("footage").then((data) => {
+      console.log(data);
+      res.send(201)
+    }).catch((e) => {
+      res.status(500).send(e)
+    })
+})
 app.post("/api/footage", (req: Request , res: Response) => {
   const footageInstance = {
     eventName: req.body.eventName,
     eventDate: req.body.eventDate, 
-    footageURI: req.body.footageURI
+    footageURI: req.body.footageURI,
   };
 
   db.insert(footageInstance).table("footage").returning("*").then((data) => {
